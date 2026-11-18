@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class RowAnimationTimeExample extends StatefulWidget {
@@ -38,12 +38,10 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -56,9 +54,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                   animationDuration: const Duration(milliseconds: 500),
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |      EXAMPLE CODE 14 (ANIMATION TIME)      |
@@ -69,9 +65,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                   animationDuration: const Duration(seconds: 3),
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |      EXAMPLE CODE 15 (ANIMATION TIME)      |
@@ -82,7 +76,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                   animationDuration: const Duration(minutes: 1),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class RowLineThicknessExample extends StatefulWidget {
@@ -38,12 +38,10 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -57,9 +55,7 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                   backStrokeWidth: 25,
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |       EXAMPLE CODE 8 (LINE THICKNESS)      |
@@ -71,9 +67,7 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                   backStrokeWidth: 10,
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |       EXAMPLE CODE 9 (LINE THICKNESS)      |
@@ -83,7 +77,7 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                   backStrokeWidth: 0,
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

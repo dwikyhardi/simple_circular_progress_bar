@@ -1,5 +1,6 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
+
+import 'package:material_ui/material_ui.dart';
 
 /// Double pi.
 const double _doublePi = 2 * pi;
@@ -120,13 +121,13 @@ class SimpleCircularProgressBar extends StatefulWidget {
     this.onGetText,
     this.centerChild,
   }) : assert(
-          centerChild == null || onGetText == null,
-          'Cannot provide both a centerChild and a onGetText\n'
-          'To provide both, use '
-          '\n\n---------------------------------------\n\n'
-          'centerChild: (double progressValue) {\n return SomeWidget();\n }'
-          '\n\n---------------------------------------\n',
-        );
+         centerChild == null || onGetText == null,
+         'Cannot provide both a centerChild and a onGetText\n'
+         'To provide both, use '
+         '\n\n---------------------------------------\n\n'
+         'centerChild: (double progressValue) {\n return SomeWidget();\n }'
+         '\n\n---------------------------------------\n',
+       );
 
   @override
   State<SimpleCircularProgressBar> createState() =>
@@ -270,18 +271,23 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
 
             // If mergeMode is on and the current value is equal to the maximum
             // value, we should draw a full circle with the specified color.
-            final isFullProgress = widget.mergeMode &
+            final isFullProgress =
+                widget.mergeMode &
                 (animationController.value == animationController.upperBound);
 
             // Create center text widget.
             // If no callback is defined, create an empty widget.
             Widget centerTextWidget;
             if (widget.onGetText != null) {
-              centerTextWidget =
-                  widget.onGetText!(animationController.value, widget.maxValue);
+              centerTextWidget = widget.onGetText!(
+                animationController.value,
+                widget.maxValue,
+              );
             } else if (widget.centerChild != null) {
               centerTextWidget = widget.centerChild!(
-                  animationController.value, widget.maxValue);
+                animationController.value,
+                widget.maxValue,
+              );
             } else {
               centerTextWidget = const SizedBox.shrink();
             }
@@ -397,27 +403,25 @@ class _SimpleCircularProgressBarPainter extends CustomPainter {
     canvas.drawPath(
       Path.combine(
         PathOperation.xor,
-        Path()
-          ..addArc(
-            Rect.fromLTWH(
-              circleOffset.dx - progressStrokeWidth / 2,
-              circleOffset.dy - progressStrokeWidth / 2,
-              progressStrokeWidth,
-              progressStrokeWidth,
-            ),
-            _degToRad(180),
-            _degToRad(180),
+        Path()..addArc(
+          Rect.fromLTWH(
+            circleOffset.dx - progressStrokeWidth / 2,
+            circleOffset.dy - progressStrokeWidth / 2,
+            progressStrokeWidth,
+            progressStrokeWidth,
           ),
-        Path()
-          ..addArc(
-            Rect.fromCenter(
-              center: circleOffset,
-              width: progressStrokeWidth,
-              height: height,
-            ),
-            _degToRad(angle),
-            _degToRad(180),
+          _degToRad(180),
+          _degToRad(180),
+        ),
+        Path()..addArc(
+          Rect.fromCenter(
+            center: circleOffset,
+            width: progressStrokeWidth,
+            height: height,
           ),
+          _degToRad(angle),
+          _degToRad(180),
+        ),
       ),
       pathPaint,
     );

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
@@ -14,7 +14,7 @@ void main() {
   tearDown(() {
     valueNotifier!.dispose();
   });
-  
+
   void generateTest(String testName, double testValue) {
     testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
       final font = rootBundle.load('fonts/Roboto-Regular.ttf');
@@ -22,19 +22,19 @@ void main() {
       final fontLoader = FontLoader('Roboto')..addFont(font);
       await fontLoader.load();
 
-      const centerTextStyle = TextStyle(
-        fontFamily: 'Roboto',
-      );
+      const centerTextStyle = TextStyle(fontFamily: 'Roboto');
 
-      await tester.pumpWidget(SimpleCircularProgressBar(
-        valueNotifier: valueNotifier,
-        maxValue: testValue,
-        onGetText: (value) => Text(
-          '$value',
-          textDirection: TextDirection.ltr,
-          style: centerTextStyle,
+      await tester.pumpWidget(
+        SimpleCircularProgressBar(
+          valueNotifier: valueNotifier,
+          maxValue: testValue,
+          onGetText: (value, maxValue) => Text(
+            '$value',
+            textDirection: TextDirection.ltr,
+            style: centerTextStyle,
+          ),
         ),
-      ));
+      );
 
       await tester.pumpAndSettle();
 

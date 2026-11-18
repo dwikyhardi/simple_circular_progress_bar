@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class RowMergeModeExample extends StatefulWidget {
@@ -37,12 +37,10 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,9 +53,7 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                   mergeMode: true,
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |        EXAMPLE CODE 11 (MERGE MODE)        |
@@ -69,9 +65,7 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                   mergeMode: true,
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |        EXAMPLE CODE 12 (MERGE MODE)        |
@@ -82,7 +76,7 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                   mergeMode: true,
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

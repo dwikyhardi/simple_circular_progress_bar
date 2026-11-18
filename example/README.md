@@ -1,16 +1,20 @@
-# simple_circular_progress_bar_example
+# Simple circular progress bar example
 
-Demonstrates how to use the simple_circular_progress_bar plugin.
+Uses the extracted `material_ui` library. Requires Flutter >=3.47.0 and
+Dart >=3.13.0; the repository pins FVM Flutter 3.50.0.
 
-## Getting Started
+From this directory:
 
-This project is a starting point for a Flutter application.
+```sh
+fvm flutter pub get
+fvm flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+The home screen opens two demos:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Progress bar examples: colors/gradients, angles, stroke widths, merge mode,
+  animation duration, and text or custom center widgets.
+- Value notifier example: submit a numeric value to animate the progress bar.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run `fvm flutter analyze` and `fvm flutter test` to check the example and its
+navigation/notifier interactions. These widget tests do not verify device builds.

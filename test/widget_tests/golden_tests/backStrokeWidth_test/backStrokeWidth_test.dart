@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
@@ -11,15 +11,17 @@ void main() {
   });
 
   tearDown(() {
-      valueNotifier!.dispose();
+    valueNotifier!.dispose();
   });
 
   void generateTest(String testName, double testValue) {
     testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
-      await tester.pumpWidget(SimpleCircularProgressBar(
-        valueNotifier: valueNotifier,
-        backStrokeWidth: testValue,
-      ));
+      await tester.pumpWidget(
+        SimpleCircularProgressBar(
+          valueNotifier: valueNotifier,
+          backStrokeWidth: testValue,
+        ),
+      );
 
       await tester.pumpAndSettle();
 

@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
+
 import 'progress_bar_example.dart';
 import 'value_notifier_example.dart';
 
@@ -23,9 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Progress bar example app'),
-        ),
+        appBar: AppBar(title: const Text('Progress bar example app')),
         body: const ExampleHome(),
       ),
     );
@@ -38,36 +37,34 @@ class ExampleHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle buttonStyle = ButtonStyle(
-      textStyle: MaterialStateProperty.all(TextStyle(
-        foreground: Paint()..color = Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      )),
-      minimumSize: MaterialStateProperty.all(const Size.fromHeight(60)),
-      backgroundColor: MaterialStateProperty.all(
-        Colors.black.withOpacity(0.25),
+      textStyle: WidgetStateProperty.all(
+        TextStyle(
+          foreground: Paint()..color = Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      minimumSize: WidgetStateProperty.all(const Size.fromHeight(60)),
+      backgroundColor: WidgetStateProperty.all(
+        Colors.black.withValues(alpha: 0.25),
       ),
       alignment: Alignment.center,
     );
 
     return Container(
       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color(0xff0d324d),
-          Color(0xff7f5a83),
-        ],
-      )),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xff0d324d), Color(0xff7f5a83)],
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
 
             // Create 'Progress bar example' button.
             // -----------------------------------------------------------------
@@ -92,18 +89,14 @@ class ExampleHome extends StatelessWidget {
                     const Text(
                       'More than 18 examples of bar progress states',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
               ),
             ),
 
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
 
             // Create 'Value notifier example' button.
             // -----------------------------------------------------------------
@@ -128,18 +121,14 @@ class ExampleHome extends StatelessWidget {
                     const Text(
                       'An example showing how to work with ValueNotifier',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
               ),
             ),
 
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

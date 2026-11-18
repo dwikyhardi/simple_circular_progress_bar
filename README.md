@@ -8,10 +8,10 @@
     <img src="https://img.shields.io/badge/version-2.0.0-blueviolet" />
   </a>
   <a href="https://docs.flutter.dev/development/tools/sdk/releases">
-    <img src="https://img.shields.io/badge/flutter-3.10.3-blue" />
+    <img src="https://img.shields.io/badge/flutter-%3E%3D3.47.0-blue" />
   </a>
   <a href="https://dart.dev/guides/whats-new">
-    <img src="https://img.shields.io/badge/dart-3.0.3-blue" />
+    <img src="https://img.shields.io/badge/dart-%3E%3D3.13.0-blue" />
   </a>
 </p>
 
@@ -31,18 +31,32 @@ Open source Flutter package, simple circular progress bar.
 - [YouTube video](#youtube-video)
 
 # Installing
+This fork uses the extracted `material_ui` library (currently ^1.11.1) and
+requires Flutter >=3.47.0 and Dart >=3.13.0. It is tested with FVM Flutter 3.50.0.
+Use the extracted Material library in the host app as well.
+
 Add in pubspec.yaml:
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: ^1.11.1
   simple_circular_progress_bar: ^2.0.0
 ```
 
 Now in your code, you can import:
 ```dart
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 ```
+
+The fork APIs are unchanged: `onGetText` and `centerChild` both receive
+`(double value, double maxValue)`. Use one center callback at a time.
+The caller retains ownership of a supplied `ValueNotifier<double>`.
+
+For local checks, run `fvm flutter pub get`, `fvm flutter analyze`, and
+`fvm flutter test` from the repository root. Golden baselines use Flutter 3.50.0;
+rendering on other Flutter versions or platforms can differ.
 
 # Basic examples
 See the full example [here](https://github.com/Nulllix/simple_circular_progress_bar/tree/master/example/lib).
@@ -286,7 +300,7 @@ The source code of the example can be found [here](https://github.com/Nulllix/si
 | **mergeMode**<br>*bool*                          | false                | When this mode is enabled the progress bar with a 100% value forms a full circle with [fullProgressColor]. If no [fullProgressColor] is specified, the last color from [progressColors] is taken. |
 | **valueNotifier**<br>*ValueNotifier<double>*     |                      | The object designed to update the value of the progress bar. By default, creates a ValueNotifier with the maximum value.                                                                          |
 | **onGetText**<br>*Text Function(double, double)* |                      | Callback to generate a new Text widget located in the center of the progress bar. The callback input is the current value and the maxValue of the progress bar.                                   |
-| **centerChild**<br>*Text Function(double, double)* |                      | Widget located in the center of the progress bar. The callback input is the current value and the max value of the progress.                                                                      |
+| **centerChild**<br>*Widget Function(double, double)* |                      | Widget located in the center of the progress bar. The callback input is the current value and the max value of the progress.                                                                      |
 
 # YouTube video
 You can see how the application works from the example in this [video](https://youtube.com/shorts/kKYyNAk2FMM).

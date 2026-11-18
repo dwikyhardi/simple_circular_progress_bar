@@ -27,3 +27,6 @@
 .dart_tool/
 .packages
 build/
+
+# FVM SDK cache
+.fvm/

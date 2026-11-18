@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class RowStartAngleExample extends StatefulWidget {
@@ -37,12 +37,10 @@ class _RowStartAngleExampleState extends State<RowStartAngleExample> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -54,9 +52,7 @@ class _RowStartAngleExampleState extends State<RowStartAngleExample> {
                   startAngle: 45,
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |        EXAMPLE CODE 5 (START ANGLE)        |
@@ -66,9 +62,7 @@ class _RowStartAngleExampleState extends State<RowStartAngleExample> {
                   startAngle: 90,
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |        EXAMPLE CODE 6 (START ANGLE)        |
@@ -78,7 +72,7 @@ class _RowStartAngleExampleState extends State<RowStartAngleExample> {
                   startAngle: -180,
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

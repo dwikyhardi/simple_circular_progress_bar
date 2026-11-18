@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class RowColorExample extends StatefulWidget {
@@ -37,12 +37,10 @@ class _RowColorExampleState extends State<RowColorExample> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -54,9 +52,7 @@ class _RowColorExampleState extends State<RowColorExample> {
                   progressColors: const [Colors.cyan],
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |           EXAMPLE CODE 2 (COLOR)           |
@@ -66,9 +62,7 @@ class _RowColorExampleState extends State<RowColorExample> {
                   progressColors: const [Colors.cyan, Colors.purple],
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |           EXAMPLE CODE 3 (COLOR)           |
@@ -80,12 +74,12 @@ class _RowColorExampleState extends State<RowColorExample> {
                     Colors.green,
                     Colors.amberAccent,
                     Colors.redAccent,
-                    Colors.purpleAccent
+                    Colors.purpleAccent,
                   ],
                   backColor: Colors.blueGrey,
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class RowTextOrImageExample extends StatefulWidget {
@@ -39,12 +39,10 @@ class _RowTextOrImageExampleState extends State<RowTextOrImageExample> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -58,7 +56,7 @@ class _RowTextOrImageExampleState extends State<RowTextOrImageExample> {
                     TextStyle centerTextStyle = TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.greenAccent.withOpacity(value * 0.01),
+                      color: Colors.greenAccent.withValues(alpha: value * 0.01),
                     );
 
                     return Row(
@@ -67,21 +65,18 @@ class _RowTextOrImageExampleState extends State<RowTextOrImageExample> {
                           value == maxValue
                               ? Icons.download_done
                               : Icons.downloading,
-                          color: Colors.greenAccent.withOpacity(value * 0.01),
+                          color: Colors.greenAccent.withValues(
+                            alpha: value * 0.01,
+                          ),
                         ),
                         const SizedBox(width: 4),
-                        Text(
-                          '${value.toInt()}%',
-                          style: centerTextStyle,
-                        ),
+                        Text('${value.toInt()}%', style: centerTextStyle),
                       ],
                     );
                   },
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |           EXAMPLE CODE 17 (TEXT)           |
@@ -101,9 +96,7 @@ class _RowTextOrImageExampleState extends State<RowTextOrImageExample> {
                   },
                 ),
 
-                const SizedBox(
-                  width: 25,
-                ),
+                const SizedBox(width: 25),
 
                 // ==============================================
                 // |           EXAMPLE CODE 18 (TEXT)           |
@@ -115,17 +108,14 @@ class _RowTextOrImageExampleState extends State<RowTextOrImageExample> {
                     TextStyle centerTextStyle = TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
-                      color: Colors.greenAccent.withOpacity(value * 0.01),
+                      color: Colors.greenAccent.withValues(alpha: value * 0.01),
                     );
 
-                    return Text(
-                      '${value.toInt()}',
-                      style: centerTextStyle,
-                    );
+                    return Text('${value.toInt()}', style: centerTextStyle);
                   },
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
